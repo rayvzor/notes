@@ -1,4 +1,6 @@
 <?php
+require("classes/Bd.php");
+require("classes/Notes.php");
 require("classes/Account.php");
 require("classes/User.php");
 session_start();
