@@ -1,4 +1,5 @@
 <?php
+require("config.php");
 require("classes/Bd.php");
 require("classes/Notes.php");
 require("classes/Account.php");
