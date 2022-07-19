@@ -1,10 +1,9 @@
 <?php
-require("config.php");
 require("classes/Bd.php");
 require("classes/Notes.php");
 require("classes/Account.php");
 require("classes/User.php");
-$bd = new Bd(DB_HOST, DB_LOGIN, DB_PASSWORD);
+$bd = new Bd();
 session_start();
 if(isset($_SESSION['account'])){
 	switch($_SERVER['SCRIPT_NAME']){

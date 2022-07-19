@@ -5,10 +5,7 @@ class Bd{
 	public $password = "";
 	private $link;
 	
-	public function __construct($host, $login, $password){
-		$this->host = $host;
-		$this->login = $login;
-		$this->password = $password;
+	public function __construct(){
 		$this->link = mysqli_connect($this->host, $this->login, $this->password);
 	}
 	public function bdQuery(String $sql){
