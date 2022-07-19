@@ -3,17 +3,17 @@ class Bd{
 	public $host = "";
 	public $login = "";
 	public $password = "";
-	private $link;
+	private $dbLink;
 	
 	public function __construct(){
-		$this->link = mysqli_connect($this->host, $this->login, $this->password);
+		$this->dbLink = mysqli_connect($this->host, $this->login, $this->password);
 	}
 	public function bdQuery(String $sql){
-		$result = mysqli_query($this->link, $sql);
+		$result = mysqli_query($this->dbLink, $sql);
 		return $result;
 	}
 	public function __destruct(){
-		mysqli_close($this->link);
+		mysqli_close($this->dbLink);
 	}
 }
 ?>
