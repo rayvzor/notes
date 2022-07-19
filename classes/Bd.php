@@ -9,7 +9,7 @@ class Bd{
 		$this->link = mysqli_connect($this->host, $this->login, $this->password);
 	}
 	public function bdQuery(String $sql){
-		$result = mysqli_query($link, $sql);
+		$result = mysqli_query($this->link, $sql);
 		return $result;
 	}
 	public function __destruct(){
