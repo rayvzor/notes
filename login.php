@@ -3,10 +3,17 @@ require("header.php");
 if(!empty($_POST['login']) AND !empty($_POST['password'])){
 	$login = $_POST['login'];
 	$password = $_POST['password'];
-	$result = $bd->bdQuery("SELECT id, name FROM Account WHERE login = '$login' AND password = '$password'");
+	$result = $bd->bdQuery("SELECT id, id_access, name FROM Account WHERE login = '$login' AND password = '$password'");
 	$row = mysqli_fetch_array($result);
 	if(isset($row['id'])){
-		$_SESSION['account'] = new User($row['id'], $row['name']);
+		switch($row['id_access']){
+			case '1':
+				$_SESSION['account'] = new User($row['id'], $row['name']);
+			break;
+			case "2":
+				$_SESSION['account'] = new Admin($row['id'], $row['name']);
+			break;
+		}
 		header("location: index.php");
 	}else{
 		echo "Не правильный логин или пароль";
