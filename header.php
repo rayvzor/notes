@@ -3,6 +3,7 @@ require("classes/Bd.php");
 require("classes/Notes.php");
 require("classes/Account.php");
 require("classes/User.php");
+require("classes/Admin.php");
 $bd = new Bd();
 session_start();
 if(isset($_SESSION['account'])){
