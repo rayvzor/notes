@@ -3,7 +3,7 @@ require("header.php");
 if(!empty($_POST['login']) AND !empty($_POST['password'])){
 	$login = $_POST['login'];
 	$password = $_POST['password'];
-	$result = $bd->bdQuery("SELECT id, name FROM Account WHERE login = $login AND password = $password");
+	$result = $bd->bdQuery("SELECT id, name FROM Account WHERE login = '$login' AND password = '$password'");
 	$row = mysqli_fetch_array($result);
 	if(isset($row['id'])){
 		$_SESSION['account'] = new User($row['id'], $row['name']);
