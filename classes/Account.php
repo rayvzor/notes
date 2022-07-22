@@ -7,5 +7,9 @@ Class Account{
 		$this->id = $id;
 		$this->name = $name;
 	}
+	public function getMyNotes(){
+		$bd = new Bd();
+		$this->notes = $bd->getUserNotes($this->id);
+	}
 }
 ?>

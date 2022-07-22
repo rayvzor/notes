@@ -3,8 +3,7 @@ require("header.php");
 if(!empty($_POST['login']) AND !empty($_POST['password'])){
 	$login = $_POST['login'];
 	$password = $_POST['password'];
-	$result = $bd->bdQuery("SELECT id, id_access, name FROM account WHERE login = '$login' AND password = '$password'");
-	$row = mysqli_fetch_array($result);
+	$row = $bd->login($login, $password);
 	if(isset($row['id'])){
 		switch($row['id_access']){
 			case '1':
