@@ -7,10 +7,10 @@ if(!empty($_POST['login']) AND !empty($_POST['password'])){
 	if(isset($row['id'])){
 		switch($row['id_access']){
 			case '1':
-				$_SESSION['account'] = new User($row['id'], $row['name']);
+				$_SESSION['account'] = new User($row['id'], $row['id_access'], $row['name']);
 			break;
 			case "2":
-				$_SESSION['account'] = new Admin($row['id'], $row['name']);
+				$_SESSION['account'] = new Admin($row['id'], $row['id_access'], $row['name']);
 			break;
 		}
 		header("location: index.php");

@@ -1,10 +1,12 @@
 <?php
 Class Account{
 	public int $id;
+	public int $id_access;
 	public String $name;
 	public Array $notes = Array();//Массив обьектов с заметками
-	public function __construct($id, $name){
+	public function __construct($id, $id_access, $name){
 		$this->id = $id;
+		$this->id_access = $id_access;
 		$this->name = $name;
 	}
 	public function getMyNotes(){

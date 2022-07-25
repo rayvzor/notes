@@ -19,18 +19,18 @@ class Bd{
 		return $row;
 	}
 	public function getUserNotes($idUser){
-		$result = $this->bdQuery("SELECT id, id_account, header, content FROM notes WHERE id_account = '$idUser'");
-		while($row = mysqli_fetch_array($result)){
-			$notes[] = new Notes($row['id'], $row['header'], $row['content'], $row['id_account']);
-		}
-		return $notes;
+		$result = $this->bdQuery("SELECT id, id_account, header, content FROM notes WHERE id_account = '$idUser' ORDER BY id DESC");
+		return $this->fetchResult($result);
 	}
 	public function getNotes($page){
 		if($page != 1){
 			$page *= 10;
 		}
-		$maxPage = $page + 10;
-		$result = $this->bdQuery("SELECT id, id_account, header, content FROM notes WHERE id >= $page AND id <= $maxPage");
+		$maxPage = $page + 100;//+10
+		$result = $this->bdQuery("SELECT id, id_account, header, content FROM notes WHERE id >= $page AND id <= $maxPage ORDER BY id DESC");
+		return $this->fetchResult($result);
+	}
+	public function fetchResult($result){
 		while($row = mysqli_fetch_array($result)){
 			$notes[] = new Notes($row['id'], $row['header'], $row['content'], $row['id_account']);
 		}
