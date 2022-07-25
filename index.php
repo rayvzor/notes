@@ -7,7 +7,6 @@ if(!empty($_POST['header']) or !empty($_POST['content'])){
 	header("Location: /index.php");
 }
 require("frontend_header.php");
-echo "Вы зашли как: [" . get_class($account) . "]" . $account->name . " <a href='logout.php'>Выход</a>";
 echo "
 	<form action='/index.php' method='POST'>
 		<input type='text' name='header' placeholder='Заголовок'><br>

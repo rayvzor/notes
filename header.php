@@ -18,6 +18,11 @@ if(isset($_SESSION['account'])){
 			break;
 		default:
 			$account = $_SESSION['account'];
+			if($account->id_access == 2){
+				$accessName = "Админ";
+			}else{
+				$accessName = "Пользователь";
+			}
 	}
 }else{
 	if($_SERVER['SCRIPT_NAME'] != "/registration.php" AND $_SERVER['SCRIPT_NAME'] != "/login.php"){

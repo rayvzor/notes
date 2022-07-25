@@ -10,7 +10,6 @@ if($row['id_account'] != $account->id and $account->id_access != 2){
 	header("Location: /index.php");
 }
 require("frontend_header.php");
-echo "<a href='/index.php'>Назад</a>";
 echo "<center>";
 echo "<h1>" . $row['header'] . "</h1>";
 echo "<p>" . $row['content'] . "</p>";
@@ -26,6 +25,7 @@ echo "
 	<input type='submit' name='delete' value='Удалить'>
 </form>
 ";
+echo "<a href='/index.php'><<<</a>";
 echo "</center>";
 require("footer.php");
 ?>
