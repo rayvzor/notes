@@ -21,9 +21,10 @@ if(!empty($_POST['login']) AND !empty($_POST['password'])){
 require("frontend_header.php");
 echo "
 <form action='login.php' method='POST'>
-	Логин:<input type='text' name='login'>
-	Пароль:<input type='text' name='password'>
-	<input type='submit' value='Вход'>
+	<input required style='width:200px; height:25px;' type='text' name='login' placeholder='Логин'><br>
+	<input required style='width:200px; height:25px;'  type='text' name='password' placeholder='Пароль'><br>
+	<input style='width:115px; height:25px;'  type='submit' value='Вход'>
+	<a href='/registration.php'>Регистрация</a>
 </form>
 ";
 require("footer.php");

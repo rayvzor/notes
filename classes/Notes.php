@@ -11,5 +11,13 @@ Class Notes{
 		$this->content = $content;
 		$this->author = $author;
 	}
+	
+	public function accessToNote($account){
+		if($this->author != $account->id and $account->id_access != 2){
+			return false;
+		}else{
+			return true;
+		}
+	}
 }
 ?>
